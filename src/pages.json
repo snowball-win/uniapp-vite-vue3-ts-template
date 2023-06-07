@@ -6,6 +6,12 @@
             "style": {
                 "navigationBarTitleText": "uni-app"
             }
+        },
+        {
+            "path": "pages/video/index",
+            "style": {
+                "navigationBarTitleText": "uni-app-video"
+            }
         }
     ],
     "globalStyle": {

@@ -1,12 +1,10 @@
 <template>
     <view class="content">
-        <!-- <image class="logo" src="@/assets/logo.png" /> -->
-        <view>哈哈哈哈new2</view>
+        <view>video</view>
         <view class="text-area">
             <text class="title">{{ title }}</text>
         </view>
-        <hello-world></hello-world>
-        <view @click="toVideo">to video</view>
+        <my-video></my-video>
     </view>
 </template>
 
@@ -14,13 +12,7 @@
 import { ref } from 'vue'
 
 const title = ref('Hello')
-const toVideo = () => {
-    uni.navigateTo({
-        url: '/pages/video/index'
-    })
-}
 </script>
-
 <style lang="scss">
 .content {
     display: flex;
@@ -42,7 +34,7 @@ const toVideo = () => {
 }
 
 .title {
-    color: #8f8f94;
+    color: #ff0000;
     font-size: 36rpx;
 }
 </style>
