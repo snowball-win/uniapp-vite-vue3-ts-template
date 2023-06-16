@@ -14,8 +14,8 @@
                 <video
                     id="myVideo"
                     controls
-                    :class="(item as videoItem).direction"
-                    :src="(item as videoItem).url"
+                    :class="item.direction"
+                    :src="item.url"
                     :show-fullscreen-btn="true"
                     :enable-play-gesture="true"
                     :enable-progress-gesture="true"
@@ -25,13 +25,13 @@
                     object-fit="cover"
                     @error="videoErrorCallback"
                 ></video>
-                <view
-                    class="like"
-                    @click="onLike"
-                    >{{ (item as videoItem).like? '已赞' : '点赞' }}</view
-                >
-                <view class="collect" @click="onCollect(item)">收藏</view>
-                <view class="author">{{ item.author }}</view>
+                <view class="like" @click="onLike(item)">{{
+                    (item as videoItem).like ? '已赞' : '点赞'
+                }}</view>
+                <view class="collect" @click="onCollect(item, index)">{{
+                    (item as videoItem).collect ? '收藏' : '已藏'
+                }}</view>
+                <view class="author">{{ (item as videoItem).author }}</view>
                 <view class="title">{{ (item as videoItem).title }}</view>
             </swiper-item>
         </swiper>
@@ -39,9 +39,9 @@
 </template>
 
 <script setup lang="ts">
-import request from '@/utils/request'
 import { ref, reactive } from 'vue'
 import { useStore } from 'vuex'
+import request from '@/utils/request'
 
 interface videoItem {
     url?: string
@@ -51,7 +51,7 @@ interface videoItem {
     like?: boolean
     collect?: boolean
 }
-const videoList: videoItem[] = [
+let videoList: videoItem[] = reactive([
     {
         url: 'https://img.cdn.aliyun.dcloud.net.cn/guide/uniapp/%E7%AC%AC1%E8%AE%B2%EF%BC%88uni-app%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D%EF%BC%89-%20DCloud%E5%AE%98%E6%96%B9%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B@20200317.mp4',
         direction: 'Horizontal', // Horizontal 横向 vertical 竖向
@@ -92,7 +92,7 @@ const videoList: videoItem[] = [
         like: true,
         collect: true
     }
-]
+])
 
 const videoErrorCallback = (e: any) => {
     console.log(e)
@@ -104,7 +104,14 @@ const title = ref(store.state.system.title)
 const autoplay: boolean = false
 // 滑动动画时长
 const duration: number = 300
-
+const changeplay = (res: any) => {
+    console.log('34', res)
+    if (touchStartPageY < touchEndPageY) {
+        console.log('向下滑动')
+    } else {
+        console.log('向上滑动')
+    }
+}
 let touchStartPageY: number = 0
 const touchStart = (res: any) => {
     console.log('37', res)
@@ -115,21 +122,16 @@ const touchEnd = (res: any) => {
     console.log('40', res)
     touchEndPageY = res.changedTouches[0].pageY
 }
-const changeplay = (res: any) => {
-    console.log('34', res)
-    if (touchStartPageY < touchEndPageY) {
-        console.log('向下滑动')
-    } else {
-        console.log('向上滑动')
-    }
+
+const onLike = (item: videoItem) => {
+    item.like = !item.like
+    // request.post('/UcAuthCompany/getName').then((res: any) => {
+    //     console.log(res)
+    // })
 }
-const onLike = () => {
-    request.post('/UcAuthCompany/getName').then((res: any) => {
-        console.log(res)
-    })
-}
-const onCollect = (item: any): void => {
-    console.log(item)
+const onCollect = (item: any, index: number): void => {
+    videoList[index].collect = !videoList[index].collect
+    console.log('131', videoList[index])
 }
 uni.setTabBarBadge({
     // 显示数字

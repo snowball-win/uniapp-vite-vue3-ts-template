@@ -1,8 +1,8 @@
 <template>
   <view class="content">
-    <!-- <image class="logo" src="@/static/logo.png" /> -->
-    <video-player class="video-player"></video-player>
-    <!-- <video-list></video-list> -->
+    <image class="logo" src="@/static/logo.png" />
+    <video-player></video-player>
+    <video-list></video-list>
   </view>
 </template>
 
@@ -13,15 +13,25 @@ const title = ref('Hello')
 
 <style lang="scss">
 .content {
-  width: 100vw;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: $bg-color;
-  .video-player{
-    height: 100%;
-  }
 }
+
+.logo {
+  height: 200rpx;
+  width: 200rpx;
+  margin-top: 200rpx;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50rpx;
+}
+
+.text-area {
+  display: flex;
+  justify-content: center;
+}
+
 </style>

@@ -1,26 +1,71 @@
 {
-    "pages": [
-        //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-        {
-            "path": "pages/index/index",
-            "style": {
-                "navigationBarTitleText": "uni-app"
-            }
-        },
-        {
-            "path": "pages/video/index",
-            "style": {
-                "navigationBarTitleText": "uni-app-video"
-            }
-        }
-    ],
-    "globalStyle": {
-        "navigationBarTextStyle": "black",
-        "navigationBarTitleText": "uni-app",
-        "navigationBarBackgroundColor": "#F8F8F8",
-        "backgroundColor": "#F8F8F8"
-    },
-    "easycom": {
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/friends/index",
+			"style": {
+				"navigationBarTitleText": "朋友"
+			}
+		},
+		{
+			"path": "pages/message/index",
+			"style": {
+				"navigationBarTitleText": "消息"
+			}
+		},
+		{
+			"path": "pages/my/index",
+			"style": {
+				"navigationBarTextStyle": "white",
+				"navigationBarTitleText": "我的",
+				"navigationBarBackgroundColor": "#ff0000",
+				"backgroundColor": "#4d84ff"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"borderStyle": "black",
+		"selectedColor": "#fb7299",
+		"color": "#444444",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/logo.png",
+				"selectedIconPath": "static/logo.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/friends/index",
+				"iconPath": "static/logo.png",
+				"selectedIconPath": "static/logo.png",
+				"text": "朋友"
+			},
+			{
+				"pagePath": "pages/message/index",
+				"iconPath": "static/logo.png",
+				"selectedIconPath": "static/logo.png",
+				"text": "消息"
+			},
+			{
+				"pagePath": "pages/my/index",
+				"iconPath": "static/logo.png",
+				"selectedIconPath": "static/logo.png",
+				"text": "我"
+			}
+		]
+	},
+	"easycom": {
         "autoscan": true,
         "custom": {
             // uni-ui 规则如下配置
