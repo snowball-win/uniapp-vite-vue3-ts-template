@@ -2,8 +2,8 @@
     <uni-rate :size="18" :value="5" />
     <view>hello-world</view>
 
-    <button @click="apiTest">调用代理接口new</button>
-    <button @click="open">打开弹窗</button>
+    <button @click="apiTest()">调用代理接口new</button>
+    <button @click="open()">打开弹窗</button>
 
     <uni-popup ref="popup" type="bottom" background-color="#fff">
         123456789

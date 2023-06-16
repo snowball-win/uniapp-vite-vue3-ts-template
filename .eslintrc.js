@@ -30,6 +30,7 @@ module.exports = {
         uni: true,
         UniApp: true
     },
+    files: ['src/pages/index.vue','src/pages/**/index.vue'],   // 匹配views和二级目录中的index.vue
     rules: {
         'prettier/prettier': [
             'error',

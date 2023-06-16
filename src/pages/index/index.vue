@@ -6,7 +6,7 @@
             <text class="title">{{ title }}</text>
         </view>
         <hello-world></hello-world>
-        <view @click="toVideo">to video</view>
+        <view @click="toVideo()">to video</view>
     </view>
 </template>
 
